@@ -46,3 +46,27 @@ export const addLectures = TryCatch(async (req, res) => {
     lecture,
   });
 });
+
+export const getAllStats = TryCatch(async (req, res) => {
+  const totalCoures = (await Courses.find()).length;
+  const totalLectures = (await Lecture.find()).length;
+  const totalUsers = (await User.find()).length;
+
+  const stats = {
+    totalCoures,
+    totalLectures,
+    totalUsers,
+  };
+
+  res.json({
+    stats,
+  });
+});
+
+export const getAllUser = TryCatch(async (req, res) => {
+  const users = await User.find({ _id: { $ne: req.user._id } }).select(
+    "-password"
+  );
+
+  res.json({ users });
+});
