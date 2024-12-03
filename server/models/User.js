@@ -9,26 +9,30 @@ const schema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      uniquq: true,
+      unique: true,
     },
     password: {
       type: String,
       required: true,
     },
-
     role: {
+      type: String,
+      default: "user",
+    },
+    mainrole: {
       type: String,
       default: "user",
     },
     subscription: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
+        ref: "Courses",
       },
     ],
+    resetPasswordExpire: Date,
   },
   {
-    timeseries: true,
+    timestamps: true,
   }
 );
 

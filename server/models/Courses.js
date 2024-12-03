@@ -9,6 +9,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
   image: {
     type: String,
     required: true,
@@ -31,7 +32,7 @@ const schema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 

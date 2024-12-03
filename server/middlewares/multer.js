@@ -5,13 +5,12 @@ const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, "uploads");
   },
-
   filename(req, file, cb) {
     const id = uuid();
 
     const extName = file.originalname.split(".").pop();
 
-    const fileName = `#{id}.${extName}`;
+    const fileName = `${id}.${extName}`;
 
     cb(null, fileName);
   },
