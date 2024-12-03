@@ -40,7 +40,7 @@ export const register = TryCatch(async (req, res) => {
     otp,
   };
 
-  await sendMail(email, "E learning", data);
+  await sendMail(email, "E Academy", data);
 
   res.status(200).json({
     message: "Otp send to your mail",
@@ -122,7 +122,7 @@ export const forgotPassword = TryCatch(async (req, res) => {
 
   const data = { email, token };
 
-  await sendForgotMail("E learning", data);
+  await sendForgotMail("E Academy", data);
 
   user.resetPasswordExpire = Date.now() + 5 * 60 * 1000;
 
