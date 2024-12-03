@@ -9,6 +9,8 @@ const app = express();
 //using middleware
 app.use(express.json());
 
+app.use("uploads", express.static("uploads"));
+
 const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
